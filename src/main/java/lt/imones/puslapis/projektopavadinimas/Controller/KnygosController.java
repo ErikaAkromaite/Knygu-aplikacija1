@@ -5,10 +5,7 @@ import lt.imones.puslapis.projektopavadinimas.model.entity.Skaitytojas;
 import lt.imones.puslapis.projektopavadinimas.model.repository.KnygosRepository;
 import lt.imones.puslapis.projektopavadinimas.model.repository.SkaitytojasRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class KnygosController {
@@ -30,7 +27,8 @@ public class KnygosController {
         return knygosRepository.findByPavadinimas(pavadinimas);
     }
     @PostMapping("/knyg/ideti_knyga")
-    String idetiKnyga() {
+    String idetiKnyga(@RequestBody Knygos ivedamaKnyga) {
+        knygosRepository.save(ivedamaKnyga);
         return "įdėjo";
     }
 

@@ -26,13 +26,13 @@ public class Knygos {
     @JoinColumn(name = "skaitytojo_id")
     private Skaitytojas knygosRezervacija;
 
-    @JsonIgnore
+
     @ManyToMany (cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
             name = "sujungimas_megstamos_knygos",
             joinColumns = @JoinColumn(name = "knygos_id"),
             inverseJoinColumns = @JoinColumn(name = "skaitytojas_id"))
-    private Set<Skaitytojas> SkaiytytojuMegstamosKnygos;
+    private Set<Skaitytojas> skaiytytojuMegstamosKnygos;
 
     public Knygos() {
     }
@@ -47,7 +47,7 @@ public class Knygos {
         this.puslapiuSkaicius = puslapiuSkaicius;
         this.knygosKategorija = knygosKategorija;
         this.knygosRezervacija = knygosRezervacija;
-        this.SkaiytytojuMegstamosKnygos = skaiytytojuMegstamosKnygos;
+        this.skaiytytojuMegstamosKnygos = skaiytytojuMegstamosKnygos;
     }
 
     public long getId() {
@@ -123,11 +123,11 @@ public class Knygos {
     }
 
     public Set<Skaitytojas> getSkaiytytojuMegstamosKnygos() {
-        return SkaiytytojuMegstamosKnygos;
+        return skaiytytojuMegstamosKnygos;
     }
 
     public void setSkaiytytojuMegstamosKnygos(Set<Skaitytojas> skaiytytojuMegstamosKnygos) {
-        SkaiytytojuMegstamosKnygos = skaiytytojuMegstamosKnygos;
+        this.skaiytytojuMegstamosKnygos = skaiytytojuMegstamosKnygos;
     }
 
     @Override
@@ -142,7 +142,7 @@ public class Knygos {
                 ", puslapiuSkaicius=" + puslapiuSkaicius +
                 ", knygosKategorija=" + knygosKategorija +
                 ", knygosRezervacija=" + knygosRezervacija +
-                ", SkaiytytojuMegstamosKnygos=" + SkaiytytojuMegstamosKnygos +
+                ", SkaiytytojuMegstamosKnygos=" + skaiytytojuMegstamosKnygos +
                 '}';
     }
 }

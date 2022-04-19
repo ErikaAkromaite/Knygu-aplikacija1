@@ -19,7 +19,7 @@ public class Skaitytojas {
     private Set<Knygos> visosKnygos;
 
     @JsonIgnore
-    @ManyToMany (cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany (cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(
             name = "sujungimas_megstamos_knygos",
             joinColumns = @JoinColumn(name = "skaitytojas_id"),
