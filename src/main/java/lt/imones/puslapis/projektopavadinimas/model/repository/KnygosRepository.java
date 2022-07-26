@@ -9,5 +9,6 @@ import java.util.List;
 @Repository
 public interface KnygosRepository extends JpaRepository<Knygos, Long> {
     Knygos findByPavadinimas (String pavadinimas);
+    Knygos findById(long id);
     List<Knygos> findByPuslapiuSkaiciusBetween(int pradinisPuslapiuSkaicius, int galutinisPuslapiuSkaicius);
 }

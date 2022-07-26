@@ -1,10 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="ISO-8859-1">
+    <title>Knygos redagavimas</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
 </head>
 <body>
-$END$
+<div class="container">
+    <h1>Knygos regavimas</h1>
+    <hr>
+    <h2>Pakoreguoti knygos duomenis</h2>
+
+    <form th:action="@{/ideta_knyga}" th:object="${knyga}" method="POST">
+        <input type="hidden" th:field="*{id}">
+        <input type="hidden" th:field="*{knygosRezervacija.id}">
+        <input th:field="*{pavadinimas}" type="text"   class="form-control mb-4 col-4">
+        <input th:field="*{autorius}" type="text"  class="form-control mb-4 col-4">
+        <input th:field="*{santrauka}"type="text"  class="form-control mb-4 col-4">
+        <input th:field="*{ISBN}" type="number"  class="form-control mb-4 col-4">
+        <input th:field="*{nuotrauka}" type="text"  class="form-control mb-4 col-4">
+        <input th:field="*{puslapiuSkaicius}" type="number"  class="form-control mb-4 col-4">
+        <select th:field="*{knygosKategorija.id}" class="form-control" id="dropDownList">
+            <option th:each="kategorija : ${kategorijos}" th:value="${kategorija.getId()}" th:text="${kategorija.getPavadinimas()}" th:selected="knygosKategorija.id"></option>
+        </select>
+        <button type="submit" class="btn btn-info col-2">Išsaugokite knygą</button>
+
+    </form>
+
+    <hr>
+
+    <a th:href="@{/}"> Grįžti atgal</a>
+</div>
 </body>
 </html>

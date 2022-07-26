@@ -34,6 +34,15 @@ public class Knygos {
             inverseJoinColumns = @JoinColumn(name = "skaitytojas_id"))
     private Set<Skaitytojas> skaiytytojuMegstamosKnygos;
 
+
+    public boolean arKnygaRezervuota () {
+        if (knygosRezervacija == null) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     public Knygos() {
     }
 
@@ -145,4 +154,5 @@ public class Knygos {
                 ", SkaiytytojuMegstamosKnygos=" + skaiytytojuMegstamosKnygos +
                 '}';
     }
+
 }

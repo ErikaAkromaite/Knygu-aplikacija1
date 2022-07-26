@@ -39,10 +39,10 @@ public class KnygosController {
         if (rastaKnyga.getKnygosRezervacija()==null){
             rastaKnyga.setKnygosRezervacija(rastasSKaitytojas);
             knygosRepository.save (rastaKnyga);
-            return "nerezervuota";
+            return "knygos_rezervacija.html";
         }
         else {
-            return "rezervuota";
+            return "Atsiprasome_knyga_rezervuota.html";
         }
 
     }
