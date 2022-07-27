@@ -2,7 +2,9 @@ package lt.imones.puslapis.projektopavadinimas.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import javax.management.relation.Role;
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.Set;
 
 @Entity
@@ -25,6 +27,16 @@ public class Skaitytojas {
             joinColumns = @JoinColumn(name = "skaitytojas_id"),
             inverseJoinColumns = @JoinColumn(name = "knygos_id"))
     private Set<Knygos> megstamosKnygos;
+
+    @JsonIgnore
+    @ManyToMany (cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "skaitytojas_roles",
+            joinColumns = @JoinColumn(
+                    name = "skaitytojas_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(
+                    name = "role_id", referencedColumnName = "id"))
+    private Set<Role> roles;
 
     public Skaitytojas() {
     }

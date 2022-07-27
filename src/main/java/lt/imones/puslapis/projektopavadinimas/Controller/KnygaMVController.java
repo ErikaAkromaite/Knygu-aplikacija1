@@ -81,6 +81,7 @@ public class KnygaMVController {
     @PostMapping ("/knygos_rezervacija/{id}")
     String rezervuotiKnyga (Model model, @PathVariable long id){
         Knygos knyga = knygosRepository.findById(id);
+        System.out.println("knyga = " + knyga.getPavadinimas());
         System.out.println("knyga.arKnygaRezervuota() = " + knyga.arKnygaRezervuota());
         if (knyga.arKnygaRezervuota()) {
             System.out.println ("Atsiprasome_knyga_rezervuota.html ");
