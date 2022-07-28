@@ -41,9 +41,11 @@ public class Roles {
     public Roles() {
     }
 
-    public Roles(Long id, String vardas) {
+    public Roles(Long id, String vardas, Set<Skaitytojas> rolesSkaitytojai, Set<Privilegijos> rolesPrivilegijos) {
         this.id = id;
         this.vardas = vardas;
+        this.rolesSkaitytojai = rolesSkaitytojai;
+        this.rolesPrivilegijos = rolesPrivilegijos;
     }
 
     public Long getId() {
@@ -62,11 +64,29 @@ public class Roles {
         this.vardas = vardas;
     }
 
+    public Set<Skaitytojas> getRolesSkaitytojai() {
+        return rolesSkaitytojai;
+    }
+
+    public void setRolesSkaitytojai(Set<Skaitytojas> rolesSkaitytojai) {
+        this.rolesSkaitytojai = rolesSkaitytojai;
+    }
+
+    public Set<Privilegijos> getRolesPrivilegijos() {
+        return rolesPrivilegijos;
+    }
+
+    public void setRolesPrivilegijos(Set<Privilegijos> rolesPrivilegijos) {
+        this.rolesPrivilegijos = rolesPrivilegijos;
+    }
+
     @Override
     public String toString() {
         return "Roles{" +
                 "id=" + id +
                 ", vardas='" + vardas + '\'' +
+                ", rolesSkaitytojai=" + rolesSkaitytojai +
+                ", rolesPrivilegijos=" + rolesPrivilegijos +
                 '}';
     }
 }

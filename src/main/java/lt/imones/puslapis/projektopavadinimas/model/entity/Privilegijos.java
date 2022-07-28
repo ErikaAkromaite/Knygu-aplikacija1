@@ -28,9 +28,10 @@ public class Privilegijos {
     public Privilegijos() {
     }
 
-    public Privilegijos(Long id, String vardas) {
+    public Privilegijos(Long id, String vardas, Set<Roles> rolesTurinciosSiaPrivilegija) {
         this.id = id;
         this.vardas = vardas;
+        this.rolesTurinciosSiaPrivilegija = rolesTurinciosSiaPrivilegija;
     }
 
     public Long getId() {
@@ -49,5 +50,20 @@ public class Privilegijos {
         this.vardas = vardas;
     }
 
+    public Set<Roles> getRolesTurinciosSiaPrivilegija() {
+        return rolesTurinciosSiaPrivilegija;
+    }
 
+    public void setRolesTurinciosSiaPrivilegija(Set<Roles> rolesTurinciosSiaPrivilegija) {
+        this.rolesTurinciosSiaPrivilegija = rolesTurinciosSiaPrivilegija;
+    }
+
+    @Override
+    public String toString() {
+        return "Privilegijos{" +
+                "id=" + id +
+                ", vardas='" + vardas + '\'' +
+                ", rolesTurinciosSiaPrivilegija=" + rolesTurinciosSiaPrivilegija +
+                '}';
+    }
 }
