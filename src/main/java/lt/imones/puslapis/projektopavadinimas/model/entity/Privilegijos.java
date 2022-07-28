@@ -1,5 +1,7 @@
 package lt.imones.puslapis.projektopavadinimas.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.management.relation.Role;
 import javax.persistence.*;
 import java.util.Collection;
@@ -13,6 +15,15 @@ public class Privilegijos {
     private Long id;
 
     private String vardas;
+
+    @JsonIgnore
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "roles_privilegijos",
+            joinColumns = @JoinColumn(name = "privilegijos_id"),
+            inverseJoinColumns = @JoinColumn(name = "roles_id")
+    )
+    private Set<Roles> rolesTurinciosSiaPrivilegija;
 
     public Privilegijos() {
     }

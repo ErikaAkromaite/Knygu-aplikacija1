@@ -28,6 +28,16 @@ public class Roles {
     )
     private Set<Skaitytojas> rolesSkaitytojai;
 
+    @JsonIgnore
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "roles_privilegijos",
+            joinColumns = @JoinColumn(name = "roles_id"),
+            inverseJoinColumns = @JoinColumn(name = "privilegijos_id")
+    )
+    private Set<Privilegijos> rolesPrivilegijos;
+
+
     public Roles() {
     }
 
