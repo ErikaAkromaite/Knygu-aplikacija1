@@ -19,6 +19,15 @@ public class Roles {
 
     private String vardas;
 
+    @JsonIgnore
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "vartotoju_roles",
+            joinColumns = @JoinColumn(name = "roles_id"),
+            inverseJoinColumns = @JoinColumn(name = "skaitytojo_id")
+    )
+    private Set<Skaitytojas> rolesSkaitytojai;
+
     public Roles() {
     }
 

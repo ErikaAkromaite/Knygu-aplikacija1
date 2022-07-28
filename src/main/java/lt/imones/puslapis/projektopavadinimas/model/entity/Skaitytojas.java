@@ -28,7 +28,14 @@ public class Skaitytojas {
             inverseJoinColumns = @JoinColumn(name = "knygos_id"))
     private Set<Knygos> megstamosKnygos;
 
-
+    @JsonIgnore
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "vartotoju_roles",
+            joinColumns = @JoinColumn(name = "skaitytojo_id"),
+            inverseJoinColumns = @JoinColumn(name = "roles_id")
+    )
+    private Set<Skaitytojas> skaitytojoRoles;
 
     public Skaitytojas() {
     }
