@@ -14,13 +14,29 @@ public class Privilegijos {
 
     private String vardas;
 
-    @ManyToMany (cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinTable(
-            name = "roles_privilegijos",
-            joinColumns = @JoinColumn(
-                    name = "privilege_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(
-                    name = "role_id", referencedColumnName = "id"))
+    public Privilegijos() {
+    }
 
-    private Collection<Roles> roles;
+    public Privilegijos(Long id, String vardas) {
+        this.id = id;
+        this.vardas = vardas;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getVardas() {
+        return vardas;
+    }
+
+    public void setVardas(String vardas) {
+        this.vardas = vardas;
+    }
+
+
 }

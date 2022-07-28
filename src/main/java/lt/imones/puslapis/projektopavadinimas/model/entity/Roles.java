@@ -19,28 +19,35 @@ public class Roles {
 
     private String vardas;
 
+    public Roles() {
+    }
 
-    @JsonIgnore
-    @ManyToMany (cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinTable(
-            name = "skaitytojas_roles",
-            joinColumns = @JoinColumn(
-                    name = "role_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(
-                    name = "skaitytojas_id", referencedColumnName = "id"))
-    private Set<Skaitytojas> skaitytojai;
+    public Roles(Long id, String vardas) {
+        this.id = id;
+        this.vardas = vardas;
+    }
 
+    public Long getId() {
+        return id;
+    }
 
-    @JsonIgnore
-    @ManyToMany (cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinTable(
-            name = "roles_privilegijos",
-            joinColumns = @JoinColumn(
-                    name = "role_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(
-                    name = "privilegijos_id", referencedColumnName = "id"))
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    private Set<Privilegijos> privilegijos;
+    public String getVardas() {
+        return vardas;
+    }
 
+    public void setVardas(String vardas) {
+        this.vardas = vardas;
+    }
 
+    @Override
+    public String toString() {
+        return "Roles{" +
+                "id=" + id +
+                ", vardas='" + vardas + '\'' +
+                '}';
+    }
 }
