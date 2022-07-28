@@ -29,26 +29,25 @@ public class Skaitytojas {
     private Set<Knygos> megstamosKnygos;
 
     @JsonIgnore
-    @ManyToMany (cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(
-            name = "skaitytojas_roles",
-            joinColumns = @JoinColumn(
-                    name = "skaitytojas_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(
-                    name = "role_id", referencedColumnName = "id"))
-    private Set<Role> roles;
+            name = "vartotoju_roles",
+            joinColumns = @JoinColumn(name = "skaitytojo_id"),
+            inverseJoinColumns = @JoinColumn(name = "roles_id")
+    )
+    private Set<Skaitytojas> skaitytojoRoles;
 
     public Skaitytojas() {
     }
 
-    public Skaitytojas(long id, String prisijungimoVardas, String slaptazodis, Set<Knygos> visosKnygos, Set<Knygos> megstamosKnygos) {
+    public Skaitytojas(long id, String prisijungimoVardas, String slaptazodis, Set<Knygos> visosKnygos, Set<Knygos> megstamosKnygos, Set<Skaitytojas> skaitytojoRoles) {
         this.id = id;
         this.prisijungimoVardas = prisijungimoVardas;
         this.slaptazodis = slaptazodis;
         this.visosKnygos = visosKnygos;
         this.megstamosKnygos = megstamosKnygos;
+        this.skaitytojoRoles = skaitytojoRoles;
     }
-
 
     public long getId() {
         return id;
@@ -90,14 +89,23 @@ public class Skaitytojas {
         this.megstamosKnygos = megstamosKnygos;
     }
 
+    public Set<Skaitytojas> getSkaitytojoRoles() {
+        return skaitytojoRoles;
+    }
+
+    public void setSkaitytojoRoles(Set<Skaitytojas> skaitytojoRoles) {
+        this.skaitytojoRoles = skaitytojoRoles;
+    }
+
     @Override
     public String toString() {
         return "Skaitytojas{" +
                 "id=" + id +
                 ", prisijungimoVardas='" + prisijungimoVardas + '\'' +
-                ", slaptažodis='" + slaptazodis + '\'' +
+                ", slaptazodis='" + slaptazodis + '\'' +
                 ", visosKnygos=" + visosKnygos +
                 ", megstamosKnygos=" + megstamosKnygos +
+                ", skaitytojoRoles=" + skaitytojoRoles +
                 '}';
     }
 }
