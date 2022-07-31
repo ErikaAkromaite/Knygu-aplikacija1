@@ -15,6 +15,7 @@ public class Skaitytojas {
     private long id;
     private String prisijungimoVardas;
     private String slaptazodis;
+    private Boolean enabled;
 
     @JsonIgnore
     @OneToMany(mappedBy = "knygosRezervacija")
@@ -40,13 +41,16 @@ public class Skaitytojas {
     public Skaitytojas() {
     }
 
-    public Skaitytojas(long id, String prisijungimoVardas, String slaptazodis, Set<Knygos> visosKnygos, Set<Knygos> megstamosKnygos, Set<Skaitytojas> skaitytojoRoles) {
+    public Skaitytojas(long id, String prisijungimoVardas, String slaptazodis, Set<Knygos> visosKnygos, Set<Knygos> megstamosKnygos, Set<Skaitytojas> skaitytojoRoles,  Boolean enabled) {
         this.id = id;
         this.prisijungimoVardas = prisijungimoVardas;
         this.slaptazodis = slaptazodis;
         this.visosKnygos = visosKnygos;
         this.megstamosKnygos = megstamosKnygos;
         this.skaitytojoRoles = skaitytojoRoles;
+        this.enabled = enabled;
+
+
     }
 
     public long getId() {
@@ -93,8 +97,16 @@ public class Skaitytojas {
         return skaitytojoRoles;
     }
 
-    public void setSkaitytojoRoles(Set<Skaitytojas> skaitytojoRoles) {
+    public void setSkaitytojoRoles(Set<Roles>  skaitytojoRoles) {
         this.skaitytojoRoles = skaitytojoRoles;
+    }
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
     }
 
     @Override
@@ -106,6 +118,7 @@ public class Skaitytojas {
                 ", visosKnygos=" + visosKnygos +
                 ", megstamosKnygos=" + megstamosKnygos +
                 ", skaitytojoRoles=" + skaitytojoRoles +
+                ", enabled=" + enabled +
                 '}';
     }
 }
