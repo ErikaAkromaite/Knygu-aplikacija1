@@ -2,9 +2,7 @@ package lt.imones.puslapis.projektopavadinimas.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.management.relation.Role;
 import javax.persistence.*;
-import java.util.Collection;
 import java.util.Set;
 
 @Entity
@@ -36,12 +34,12 @@ public class Skaitytojas {
             joinColumns = @JoinColumn(name = "skaitytojo_id"),
             inverseJoinColumns = @JoinColumn(name = "roles_id")
     )
-    private Set<Skaitytojas> skaitytojoRoles;
+    private Set<Roles> skaitytojoRoles;
 
     public Skaitytojas() {
     }
 
-    public Skaitytojas(long id, String prisijungimoVardas, String slaptazodis, Set<Knygos> visosKnygos, Set<Knygos> megstamosKnygos, Set<Skaitytojas> skaitytojoRoles,  Boolean enabled) {
+    public Skaitytojas(long id, String prisijungimoVardas, String slaptazodis, Set<Knygos> visosKnygos, Set<Knygos> megstamosKnygos, Set<Roles> skaitytojoRoles, Boolean enabled) {
         this.id = id;
         this.prisijungimoVardas = prisijungimoVardas;
         this.slaptazodis = slaptazodis;
@@ -93,7 +91,7 @@ public class Skaitytojas {
         this.megstamosKnygos = megstamosKnygos;
     }
 
-    public Set<Skaitytojas> getSkaitytojoRoles() {
+    public Set<Roles> getSkaitytojoRoles() {
         return skaitytojoRoles;
     }
 

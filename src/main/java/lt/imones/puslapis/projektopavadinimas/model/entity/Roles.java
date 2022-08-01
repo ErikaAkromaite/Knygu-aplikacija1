@@ -48,6 +48,10 @@ public class Roles {
         this.rolesPrivilegijos = rolesPrivilegijos;
     }
 
+    public Roles(String vardas) {
+        this.vardas = vardas;
+    }
+
     public Long getId() {
         return id;
     }

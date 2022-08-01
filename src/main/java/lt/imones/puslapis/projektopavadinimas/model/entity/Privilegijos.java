@@ -34,6 +34,10 @@ public class Privilegijos {
         this.rolesTurinciosSiaPrivilegija = rolesTurinciosSiaPrivilegija;
     }
 
+    public Privilegijos(String vardas) {
+        this.vardas = vardas;
+    }
+
     public Long getId() {
         return id;
     }
