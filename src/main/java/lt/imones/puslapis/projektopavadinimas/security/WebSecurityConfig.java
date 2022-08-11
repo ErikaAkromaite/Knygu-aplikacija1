@@ -28,18 +28,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout()
                 .permitAll();
     }
-
-    @Bean
-    @Override
-    public UserDetailsService userDetailsService() {
-        UserDetails user =
-                User.withDefaultPasswordEncoder()
-                        .username("Erika Akromaitė")
-                        .password("psw123")
-                        .roles("USER")
-                        .build();
-
-        return new InMemoryUserDetailsManager(user);
-    }
+//    @Bean
+//   @Override
+//   public UserDetailsService userDetailsService() {
+//        UserDetails user =
+//               User.withDefaultPasswordEncoder()
+//                        .username("Erika Akromaitė")
+//                        .password("psw123")
+//                        .roles("USER")
+//                       .build();
+//
+//        return new InMemoryUserDetailsManager(user);
+//    }
 
 }
