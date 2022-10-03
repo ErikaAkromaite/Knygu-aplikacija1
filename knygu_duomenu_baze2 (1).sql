@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
 -- version 5.1.1
--- https://www.phpmyadmin.net/
---
 -- Host: 127.0.0.1:3306
 -- Generation Time: Sep 30, 2022 at 02:36 PM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+-- https://www.phpmyadmin.net/
+--
 START TRANSACTION;
 SET time_zone = "+00:00";
 

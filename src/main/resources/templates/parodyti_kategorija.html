@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+<body>
+<table class="table table-striped">
+    <tr>
+        <th>Pavadinimas</th>
+        <td th:text="${pavadinimas}"></td>
+    </tr>
+
+  <form th:action="@{'/istrinta_kategorija/' + ${id}}" method="post">
+    <input type="submit" value="Ištrinti kategorija">
+    </form>
+<form th:action="@{'/Kategorijos_redagavimas/'+ ${id}}" method="get">
+    <input type="submit" value="Kategorijai redaguoti">
+</form>
+</body>
+</html>

@@ -21,7 +21,7 @@ public class SetupDataLoader implements
         ApplicationListener<ContextRefreshedEvent>{
 
 
-        boolean alreadySetup = false;
+        boolean alreadySetup = true;
 
         @Autowired
         private SkaitytojasRepository skaitytojuRepozitorija;
@@ -32,8 +32,8 @@ public class SetupDataLoader implements
         @Autowired
         private PrivilegijosRepository privilegijosRepository;
 
-   /*     @Autowired
-        private BCryptPasswordEncoder passwordEncoder;*/
+         @Autowired
+        private PasswordEncoder passwordEncoder;
 
         @Override
         @Transactional
@@ -60,8 +60,8 @@ public class SetupDataLoader implements
         Set<Roles> hashSet = new HashSet<Roles>();
         hashSet.add (adminRole);
         Skaitytojas skaitytojas = new Skaitytojas();
-        skaitytojas.setPrisijungimoVardas("Test");
-        skaitytojas.setSlaptazodis("test");
+        skaitytojas.setPrisijungimoVardas("Erika");
+        skaitytojas.setSlaptazodis(passwordEncoder.encode("velniukste"));
         skaitytojas.setSkaitytojoRoles (hashSet);
         skaitytojas.setEnabled(true);
         skaitytojuRepozitorija.save(skaitytojas);
